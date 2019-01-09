@@ -1,0 +1,25 @@
+mixin pager(page, pages, url)
+    - let startPage = 1;
+    if (pages > 1)
+        div(class='item-list')
+            ul(class='pager')
+                if (page !== 1)
+                    li(class='pager-first')
+                        a(title='На первую страницу', href=url) «
+                    li(class='pager-previous')
+                        a(title='На предыдущую страницу', href=url + '/' + (page-1)) ‹
+                while startPage <= pages
+                    - let itemClasses = []
+                    - if (startPage == page) itemClasses.push('pager-current')
+                    - if (startPage == 1) itemClasses.push('first')
+                    - if (startPage == pages) itemClasses.push('last')
+                    if startPage != page
+                        li(class=itemClasses.join(' '))
+                            a(href=url + '/' + startPage) #{startPage++}
+                    else
+                        li(class=itemClasses.join(' ')) #{startPage++}
+                if (page !== pages)
+                    li(class='pager-next')
+                        a(title='На следующую страницу', href=url + '/' + (page + 1)) ›
+                    li(class='pager-last')
+                        a(title='На последнюю страницу', href=url + '/' + pages) »

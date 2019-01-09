@@ -1,0 +1,21 @@
+div(class='node-single-list text-muted')
+    h3 #{page_title}
+    div(class='row text-center')
+        each item in news
+            div(class='col-md-4')
+                div(class='region region-content-bottom')
+                    div(id='block-views-all-news-block-news' class='block block-views')
+                        div(class='content')
+                            div(class='view view-all-news view-id-all_news')
+                                div(class='view-content')
+                                    div(class='views-row')
+                                        div(class='views-field views-field-title')
+                                            h4(class='field-content')
+                                                a(href=services.url.getUrlByRoute('news.view', {slug: item.slug})) #{item.title}
+                                        div(class='views-field views-field-field-image')
+                                            div(class='field-content')
+                                                a(href=services.url.getUrlByRoute('news.view', {slug: item.slug}))
+                                                    img(width=280 height=280)
+                                        div(class='views-field views-field-body-1')
+                                            div(class='field-content text-justify')
+                                                p #{item.fields.body_summary}

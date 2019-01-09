@@ -1,0 +1,11 @@
+mixin breadcrumbs(items)
+    if items !== false
+        div(id='breadcrumbs')
+            ul(class='breadcrumb')
+                each item, index in items
+                li
+                    if index !== (items.length -1)
+                        a(href=item.url) #{item.name}
+                        span(class='divider')
+                    else
+                        li(class='active') #{item.name}

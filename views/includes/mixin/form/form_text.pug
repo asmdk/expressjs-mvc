@@ -1,0 +1,7 @@
+mixin form_text(name, value, label, required)
+    div(class='form-item webform-component--' + name)
+        if label !== false
+            label(for='edit-submitted-' + name) #{label}
+                if required === true
+                    span(class='form-required' title='Это поле обязательно для заполнения.') *
+            input(type='text' name=name value=value class='form-control form-text')

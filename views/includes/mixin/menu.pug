@@ -1,0 +1,7 @@
+mixin menu(items, item_id)
+    div(id=item_id class='block block-menu')
+        div(class='content')
+            ul(class='list-unstyled list-inline')
+                each item in items
+                    li(class='menu-'+item.id+' leaf')
+                        a(href=item.link) #{item.title}

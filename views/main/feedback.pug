@@ -1,0 +1,13 @@
+extends ../static_page
+
+include ../includes/mixin/form/form_text
+
+block sidebar_left
+    div(class='node node-webform')
+        div(class='content')
+            div(class='field')
+                p
+                    != 'Вы можете связаться со мной использую данные из страницы(блока) контактов, или же заполнить '
+                    != 'форму ниже и отправить ее.'
+            form(class='webform-client-form' method='post' action='')
+                +form_text('name', '', 'Имя', true)

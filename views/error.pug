@@ -1,0 +1,14 @@
+doctype html
+html
+    include includes/head.pug
+    body
+        div(class='container')
+            include includes/header.pug
+
+            include includes/main_menu.pug
+
+            div(class='row')
+                h1= error.status + ' - ' + message
+                pre #{error.stack}
+
+        include includes/footer.pug

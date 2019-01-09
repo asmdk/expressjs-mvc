@@ -1,0 +1,28 @@
+extends ../inner
+
+include ../includes/mixin/pager
+
+block breadcrumb
+    div(id='breadcrumbs')
+        ul(class='breadcrumb')
+            li
+                a(href='/') Главная
+                span(class='divider')
+            li(class='active') #{page_title}
+
+
+block title
+    span #{page_title}
+
+block sidebar_left
+    div(class='view view-views-articles')
+        div(class='view-content')
+            each article in result.docs
+                div(class='view-row')
+                    div(class='views-field views-field-title')
+                        h4: a(href=services.url.getUrlByRoute('article.view', { slug: article.slug }) ) #{article.title}
+                    div(class='views-field views-field-body')
+                        div(class='field-content') #{article.fields.body_summary}
+            else
+                div(class='message') #{not_found}
+        +pager(result.page, result.pages, articlesUrl)

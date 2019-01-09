@@ -1,0 +1,12 @@
+extends layout
+
+block breadcrumb
+    div(id='breadcrumbs')
+        ul(class='breadcrumb')
+            li
+                a(href='/') Главная
+                span(class='divider')
+            li(class='active') #{page_title}
+
+block title
+    h1(class='page-title') #{page_title}

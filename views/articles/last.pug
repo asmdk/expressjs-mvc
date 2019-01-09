@@ -1,0 +1,9 @@
+include ../includes/mixin/articles_list
+
+block title
+    h2 #{page_title}
+
+div(class='view view-views-articles')
+    +atriclesList(articles, not_found)
+    - let articlesUrl = services.url.getUrlByRoute('article.list', { page: 1 });
+    div(class='more-link'): a(href=articlesUrl) #{moreLink}

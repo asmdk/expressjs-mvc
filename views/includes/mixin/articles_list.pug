@@ -1,0 +1,10 @@
+mixin atriclesList(articles, not_found)
+    div(class='view-content')
+        each article in articles
+            div(class='view-row')
+                div(class='views-field views-field-title')
+                    h4: a(href=services.url.getUrlByRoute('article.view', {slug: article.slug}) ) #{article.title}
+                div(class='views-field views-field-body')
+                    div(class='field-content') #{article.fields.body_summary}
+        else
+            div(class='message') #{not_found}

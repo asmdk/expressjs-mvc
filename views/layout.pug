@@ -1,0 +1,23 @@
+doctype html
+html
+    include includes/head.pug
+    body
+        div(class='container')
+            include includes/header.pug
+
+            include includes/main_menu.pug
+
+            div(class='row')
+                block content
+                    div(class='col-md-9')
+                        div(id='main' class='clearfix')
+                            block breadcrumb
+                            block title
+                            div(id='sidebar_left' class='region region-content')
+                                block sidebar_left
+                    div(id='sidebar_right' class='col-md-3 sidebar-right')
+                        block sidebar_right
+
+            block content_bottom
+
+        include includes/footer.pug

@@ -1,0 +1,13 @@
+include ../includes/mixin/pager
+
+div(class='view view-views-articles')
+    div(class='view-content')
+        each news in result.docs
+            div(class='view-row')
+                div(class='views-field views-field-title')
+                    h4: a(href=services.url.getUrlByRoute('news.view', {slug: news.slug}) ) #{news.title}
+                div(class='views-field views-field-body')
+                    div(class='field-content') #{news.fields.body_summary}
+        else
+            div(class='message') #{not_found}
+    +pager(result.page, result.pages, services.url.getUrlByRoute('news.page', false))
